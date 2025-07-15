@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
 use App\Models\Dosen;
 use App\Models\Feature;
-use App\Models\Mahasiswa;
 use App\Models\Message;
-use App\Models\ProgramStudi;
+use App\Models\Mahasiswa;
+use App\Models\Pengumuman;
 use App\Models\Testimonial;
+use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LandingPageController extends Controller
 {
@@ -25,6 +26,7 @@ class LandingPageController extends Controller
             'mahasiswa' => Mahasiswa::count(),
             'dosen' => Dosen::count(),
             'prodi' => ProgramStudi::count(),
+            'pengumuman' => Pengumuman::count(),
         ];
         $features = Feature::all();
         $testimonials = Testimonial::where('is_approved', true)->latest()->get();

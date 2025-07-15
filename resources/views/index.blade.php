@@ -168,34 +168,68 @@
     </section>
 
     {{-- Bagian Statistik Dinamis --}}
-    <section id="stats" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Statistik</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm stat-item p-4">
-                        <i class="fas fa-users text-success mb-3"></i>
-                        <h3>{{ $stats['mahasiswa'] }}+</h3>
-                        <p class="text-muted">Mahasiswa Aktif</p>
+<section id="stats" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Statistik Kampus</h2>
+        <div class="row g-4 justify-content-center">
+
+            {{-- Statistik Mahasiswa --}}
+            <div class="col-lg-4 col-md-6">
+                <a href="{{ route('statistik.mahasiswa') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm stat-item text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-3x text-success mb-3"></i>
+                            <h3 class="card-title">{{ $stats['mahasiswa'] ?? '0' }}+</h3>
+                            <p class="card-text text-muted">Mahasiswa Aktif</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm stat-item p-4">
-                        <i class="fas fa-user-tie text-success mb-3"></i>
-                        <h3>{{ $stats['dosen'] }}+</h3>
-                        <p class="text-muted">Dosen Pengajar</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm stat-item p-4">
-                        <i class="fas fa-graduation-cap text-success mb-3"></i>
-                        <h3>{{ $stats['prodi'] }}+</h3>
-                        <p class="text-muted">Program Studi</p>
-                    </div>
-                </div>
+                </a>
             </div>
+
+            {{-- Statistik Dosen --}}
+            <div class="col-lg-4 col-md-6">
+                <a href="{{ route('statistik.dosen') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm stat-item text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-user-tie fa-3x text-success mb-3"></i>
+                            <h3 class="card-title">{{ $stats['dosen'] ?? '0' }}+</h3>
+                            <p class="card-text text-muted">Dosen Pengajar</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {{-- Statistik Pengumuman --}}
+            <div class="col-lg-4 col-md-6">
+                <a href="{{ route('statistik.prodi') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm stat-item text-center p-4">
+                        <div class="card-body">
+                            {{-- Icon diganti agar sesuai dengan konteks "Pengumuman" --}}
+                            <i class="fas fa-graduation-cap text-success mb-3"></i>
+                            {{-- Variabel diperbaiki dari 'prodi' menjadi 'pengumuman' --}}
+                            <h3 class="card-title">{{ $stats['prodi'] ?? '0' }}+</h3>
+                            <p class="card-text text-muted">Prodi</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="{{ route('statistik.pengumuman') }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm stat-item text-center p-4">
+                        <div class="card-body">
+                            {{-- Icon diganti agar sesuai dengan konteks "Pengumuman" --}}
+                            <i class="fas fa-bullhorn fa-3x text-success mb-3"></i>
+                            {{-- Variabel diperbaiki dari 'prodi' menjadi 'pengumuman' --}}
+                            <h3 class="card-title">{{ $stats['pengumuman'] ?? '0' }}+</h3>
+                            <p class="card-text text-muted">Pengumuman</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     {{-- Bagian Fitur Dinamis --}}
     <section id="features" class="py-5 bg-light">
